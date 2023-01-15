@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux_Note | Distortion の Blog</title><meta name="author" content="Distortion,chenhanq@hotmail.com"><meta name="copyright" content="Distortion"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Linux基础指令自学笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux_Note">
+<meta property="og:url" content="https://hexo-blog-eight-psi.vercel.app/2023/01/13/Linux-Note/index.html">
+<meta property="og:site_name" content="Distortion の Blog">
+<meta property="og:description" content="Linux基础指令自学笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hexo-blog-eight-psi.vercel.app/images/md_source/linux-cover.png">
+<meta property="article:published_time" content="2023-01-14T03:10:09.000Z">
+<meta property="article:modified_time" content="2023-01-15T05:10:00.000Z">
+<meta property="article:author" content="Distortion">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="计算机基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexo-blog-eight-psi.vercel.app/images/md_source/linux-cover.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hexo-blog-eight-psi.vercel.app/2023/01/13/Linux-Note/"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: Distortion","link":"Link: ","source":"Source: Distortion の Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: ture,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux_Note',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-14 23:10:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/icon_iroha.pic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Image</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Distortion の Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Image</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux_Note</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-14T03:10:09.000Z" title="Created 2023-01-13 21:10:09">2023-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-15T05:10:00.000Z" title="Updated 2023-01-14 23:10:00">2023-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">自学笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>21min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux_Note"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Note"><a href="#Linux-Note" class="headerlink" title="Linux Note"></a>Linux Note</h1><p><strong>Refer</strong>:  <a target="_blank" rel="noopener" href="https://linuxsurvival.com/">linuxsurvival.com</a></p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a><code>ls</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>ls</code> command is used to list the contents of a directory. Linux is case-sensitive. In other words, if you type “LS” instead of “ls”, Linux will not recognize the command.</p>
+<h2 id="ls-l"><a href="#ls-l" class="headerlink" title="ls -l"></a><code>ls -l</code></h2><p><img src="/../images/md_source/ls-l.png" alt="ls-l"></p>
+<ul>
+<li><p>The first character will almost always be either a ‘-‘, which means it’s a file, or a ‘d’, which means it’s a directory. In our example, all three of them are files.</p>
+</li>
+<li><p>The next nine characters (rw-r–r–) show the security.<br>  <img src="/../images/md_source/ls-l2.png" alt="ls-l"></p>
+<ul>
+<li>The ‘r’ means you can “read” the file’s contents.</li>
+<li>The ‘w’ means you can “write”, or modify, the file’s contents.</li>
+<li>The ‘x’ means you can “execute” the file. </li>
+<li>If any of the “rwx” characters is replaced by a ‘-‘, then that permission has been revoked.</li>
+<li>The first three characters are the owner’s (keeper) permissions, the following three characters are the group (prim) members’ permissions and the last three characters are the permissions for anyone referred to as “World”.</li>
+</ul>
+</li>
+<li><p>The next column shows the owner of the file. In our imaginary zoo, your UserID is “keeper”.</p>
+</li>
+<li><p>The next column shows the group owner of the file. Recall that we want to give the “prim” group of people special access to these files.</p>
+</li>
+<li><p>The next column shows the size of the file in bytes.</p>
+</li>
+<li><p>The next column shows the time the file was last modified (in reality, it would also show the date).</p>
+</li>
+<li><p>The final column gives the filename.</p>
+</li>
+</ul>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a><code>more</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % more package.json</span><br><span class="line">{</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: {</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"hexo generate"</span>,</span><br><span class="line">    <span class="string">"clean"</span>: <span class="string">"hexo clean"</span>,</span><br><span class="line">    <span class="string">"deploy"</span>: <span class="string">"hexo deploy"</span>,</span><br><span class="line">    <span class="string">"server"</span>: <span class="string">"hexo server"</span></span><br><span class="line">  },</span><br><span class="line">  <span class="string">"hexo"</span>: {</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"6.3.0"</span></span><br><span class="line">  },</span><br><span class="line">  <span class="string">"dependencies"</span>: {</span><br><span class="line">    <span class="string">"aplayer"</span>: <span class="string">"^1.10.1"</span>,</span><br><span class="line">    <span class="string">"hexo"</span>: <span class="string">"^6.3.0"</span>,</span><br><span class="line">    <span class="string">"hexo-deployer-git"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-archive"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-category"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-index"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-search"</span>: <span class="string">"^2.4.3"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-tag"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-ejs"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-marked"</span>: <span class="string">"^6.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-pug"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-stylus"</span>: <span class="string">"^2.1.0"</span>,</span><br><span class="line">    <span class="string">"hexo-server"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"hexo-tag-aplayer"</span>: <span class="string">"^3.0.4"</span>,</span><br><span class="line">    <span class="string">"hexo-theme-butterfly"</span>: <span class="string">"^4.5.1"</span>,</span><br><span class="line">    <span class="string">"hexo-theme-landscape"</span>: <span class="string">"^0.0.3"</span>,</span><br><span class="line">    <span class="string">"hexo-wordcount"</span>: <span class="string">"^6.0.1"</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p> <code>more</code> command is used to view the contents of a file. </p>
+<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a><code>mkdir</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">mkdir</span> <span class="built_in">test</span></span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			public			<span class="built_in">test</span></span><br><span class="line">README.md		node_modules		scaffolds		themes</span><br><span class="line">_config.butterfly.yml	package-lock.json	scripts</span><br><span class="line">_config.yml		package.json		<span class="built_in">source</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>mkdir</code> is the command to create a directory  which is short for “make directory”.</p>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a><code>mv</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			public			<span class="built_in">test</span></span><br><span class="line">README.md		node_modules		scaffolds		themes</span><br><span class="line">_config.butterfly.yml	package-lock.json	scripts</span><br><span class="line">_config.yml		package.json		<span class="built_in">source</span></span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">mv</span> <span class="built_in">test</span> project</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			project			<span class="built_in">source</span></span><br><span class="line">README.md		node_modules		public			themes</span><br><span class="line">_config.butterfly.yml	package-lock.json	scaffolds</span><br><span class="line">_config.yml		package.json		scripts</span><br></pre></td></tr></tbody></table></figure>
+<p><code>mv</code> command is used to move file. <code>mv filename target_directory</code><br>Renaming files is simply a case of “moving” a file from one name to another. <code>mv filename newname</code></p>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a><code>cd</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cd</span> blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % </span><br><span class="line"></span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">cd</span> ..</span><br><span class="line">(base) hanqichen@HanqideMBP project % </span><br></pre></td></tr></tbody></table></figure>
+<p><code>cd</code> is the command to change directory.<br><code>cd ..</code>:  <code>..</code>, it refers to the directory above your current directory.</p>
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a><code>pwd</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">pwd</span></span><br><span class="line">/Users/hanqichen/project/blog_backups</span><br></pre></td></tr></tbody></table></figure>
+<p><code>pwd</code> command is used to “print working directory”.</p>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a><code>cp</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			WashU-CourseWork-330S-503S	pbkey.txt</span><br><span class="line">Simple-Quiz-JavaScript		blog_backups			test_new</span><br><span class="line">Simple-Weather-App-Javascript	general token.txt</span><br><span class="line">Tempor Test			individual_instance.pem</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cp</span> pbkey.txt blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cd</span> blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			pbkey.txt		<span class="built_in">source</span></span><br><span class="line">README.md		node_modules		public			themes</span><br><span class="line">_config.butterfly.yml	package-lock.json	scaffolds</span><br><span class="line">_config.yml		package.json		scripts</span><br></pre></td></tr></tbody></table></figure>
+<p><code>cp</code> command is used to copy file (not directory).</p>
+<h2 id="cp-r"><a href="#cp-r" class="headerlink" title="cp -r"></a><code>cp -r</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">blog_backups			<span class="built_in">test</span></span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cd</span> blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">cd</span> ..</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cp</span> -r <span class="built_in">test</span> blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cd</span> blog_backups</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>cp -r</code> command is used to copy the directories.</p>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a><code>rm</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			pbkey.txt		<span class="built_in">source</span></span><br><span class="line">README.md		node_modules		public			themes</span><br><span class="line">_config.butterfly.yml	package-lock.json	scaffolds</span><br><span class="line">_config.yml		package.json		scripts</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">rm</span> pbkey.txt</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">ls</span></span><br><span class="line">LICENSE			db.json			public			themes</span><br><span class="line">README.md		node_modules		scaffolds</span><br><span class="line">_config.butterfly.yml	package-lock.json	scripts</span><br><span class="line">_config.yml		package.json		<span class="built_in">source</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>rm</code> command is used to remove file.</p>
+<h2 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a><code>rmdir</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			WashU-CourseWork-330S-503S	pbkey.txt</span><br><span class="line">Simple-Quiz-JavaScript		blog_backups			test_new</span><br><span class="line">Simple-Weather-App-Javascript	general token.txt</span><br><span class="line">Tempor Test			individual_instance.pem</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">rmdir</span> test_new</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			Tempor Test			general token.txt</span><br><span class="line">Simple-Quiz-JavaScript		WashU-CourseWork-330S-503S	individual_instance.pem</span><br><span class="line">Simple-Weather-App-Javascript	blog_backups			pbkey.txt</span><br></pre></td></tr></tbody></table></figure>
+<p><code>rmdir</code> command is used to remove empty directory.</p>
+<h2 id="rm-r"><a href="#rm-r" class="headerlink" title="rm -r"></a><code>rm -r</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">rmdir</span> <span class="built_in">test</span></span><br><span class="line"><span class="built_in">rmdir</span>: <span class="built_in">test</span>: Directory not empty</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">rm</span> -r <span class="built_in">test</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>rm -r</code> command is used to remove directories that contains at least one file.</p>
+<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a><code>chmod</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span> -l</span><br><span class="line">drwxr-xr-x   2 hanqichen  staff    64 Jan 14 18:35 <span class="built_in">test</span></span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">chmod</span> ugo+rwx <span class="built_in">test</span></span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span> -l</span><br><span class="line">drwxrwxrwx   2 hanqichen  staff    64 Jan 14 18:35 <span class="built_in">test</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>chmod</code> command is used to change the security “mode” of the file.</p>
+<p>The first argument you give to the “chmod” command is <code>u</code>, <code>g</code>, <code>o</code>,  (<code>u</code>: owner, <code>g</code>: group, <code>o</code>:others ) or a combination of them which specifies which of the three “rwx” sets you want to modify.</p>
+<p>Type a <code>+</code> to say that “adding” a permission or <code>-</code> to say that “removing” a permission.</p>
+<p>Then type the permission type from <code>rwx</code> or a combination of them to add permissions.</p>
+<p>Finally, specify which file are changing.</p>
+<p><code>chmod usersets+/-permission_types filename_or_directoryname</code></p>
+<h2 id="groups"><a href="#groups" class="headerlink" title="groups"></a><code>groups</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">groups</span></span><br><span class="line">staff everyone localaccounts _appserverusr admin _appserveradm _lpadmin com.apple.sharepoint.group.1 _appstore _lpoperator _developer _analyticsusers com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh com.apple.access_remote_ae</span><br></pre></td></tr></tbody></table></figure>
+<p><code>groups</code> command is used to get a listing of group memberships.</p>
+<h2 id=""><a href="#" class="headerlink" title="~"></a><code>~</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">pwd</span></span><br><span class="line">/Users/hanqichen/project</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">cd</span> ~</span><br><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">pwd</span></span><br><span class="line">/Users/hanqichen</span><br></pre></td></tr></tbody></table></figure>
+<p><code>~</code> (Tilde): Home directory of user. The tilde also can be used to specify another user’s home directory. <code>cd ~otherusername</code></p>
+<ul>
+<li>One of the nicest things about using the tilde is that you don’t have to know where anyone’s home directory is located. Sometimes system administrators will move home directories to new locations to alleviate disk space problems. If you always use the tilde, you might not even notice such moves.</li>
+</ul>
+<h2 id="man"><a href="#man" class="headerlink" title="man"></a><code>man</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP ~ % man</span><br><span class="line">What manual page <span class="keyword">do</span> you want?</span><br><span class="line">(base) hanqichen@HanqideMBP ~ % man man </span><br></pre></td></tr></tbody></table></figure>
+<p><code>man man</code>: displays the manual pages describing the “man” command.<br>The heading begins with “man(1)”. The “(1)” means that the “man” command is found in Section 1 of the manual. The number of sections in the online manual varies from system to system, but Section 1 is always the “User Commands” section. In fact, unless you are a programmer or a system administrator, you will probably never need to look in any other section.</p>
+<p><code>NAME</code> contains the name of the command and a brief description of what it does.</p>
+<p><code>SYNOPSIS</code> shows the syntax of the command. In the page at right, <code>[-k]</code> refers to all of the possible options to the man command. In this case there is only one. The <code>-k</code> is surrounded by square brackets because it is an optional part of the command. That is, if you do not include it, the command will still function. The meaning of each option is explained in the <code>OPTIONS</code> section below. </p>
+<p><code>keyword ...</code> refers to the possible arguments to the command. Since it is not surrounded by square brackets, it is not optional. That is, you must always include a <code>keyword</code> argument to the <code>man</code> command. The <code>...</code> means that you can specify more than one keyword.</p>
+<p><code>DESCRIPTION</code> gives an overview of the purpose of the command.</p>
+<p><code>OPTIONS</code> lists all of the possible options and arguments for this command and what they do.</p>
+<p><code>SEE ALSO</code> is not of direct importance, but it can be quite useful because it lists commands which have a related purpose.</p>
+<p>After examining this output, it is obvious that the <code>-k</code> option will help you searches for man page descriptions containing specified keywords. <code>man -k special_keywords</code></p>
+<h2 id="finger"><a href="#finger" class="headerlink" title="finger"></a><code>finger</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP ~ % finger hanqichen</span><br><span class="line">Login: hanqichen      			Name: Hanqi Chen</span><br><span class="line">Directory: /Users/hanqichen         	Shell: /bin/zsh</span><br><span class="line">On since Sun Dec 25 10:07 (CST) on console, idle 20 days 9:29 (messages off)</span><br><span class="line">On since Fri Jan 13 21:08 (CST) on ttys000</span><br><span class="line">No Mail.</span><br><span class="line">No Plan.</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>finger</code>: show the user information. <code>finger username</code></p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a><code>find</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % find ~ -name <span class="string">"blog*"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>find</code> command used to find files.</p>
+<p>The first argument you specify is the directory to start the search from. If “find” always searched the entire tree on a system, it would be very inefficient, so this first argument allows you to limit your search. In the above example, it will be started from your home directory (<code>~</code>) and will then search the entire tree under it. </p>
+<p><code>.</code> which represents your current directory.</p>
+<p>The <code>-name</code> option says that you are searching for a file’s name. At first, this might seem obvious and redundant, but you have to understand just how powerful the “find” command is. You can use it to search for files of a particular size, date, owner, and a variety of other criteria.</p>
+<p>The argument to <code>-name</code> can be as simple as <code>blog_backups</code> if you know that is the exact name of the file. But, if you’re not sure whether the file is called <code>blog</code>, <code>blogs</code>, or even <code>blog-favorite</code>, then you can use a wildcard, like <code>*</code>. However, when you use a wildcard, you need to surround the argument in quotes. If you don’t, you will receive a rude error message.</p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a><code>cat</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> t1.txt</span><br><span class="line">Hello                                                                                                 (base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> t2.txt</span><br><span class="line">World!                                                                                                (base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> t1.txt t2.txt</span><br><span class="line">HelloWorld!     </span><br></pre></td></tr></tbody></table></figure>
+<p><code>cat</code>: The word for “combine” is <code>concatenate</code>. Since that would be a real pain to spell all of the time, the Linux concatenation command is simply <code>cat</code>.  This command can even be used with just one filename argument, in which case, that file’s contents alone will be printed to the screen. In fact, many people use “cat”, rather than <code>more</code>, to display the contents of a file.</p>
+<h2 id="gt-gt-gt"><a href="#gt-gt-gt" class="headerlink" title="> >>"></a><code>&gt;</code> <code>&gt;&gt;</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> t1.txt t2.txt &gt; c.txt   </span><br><span class="line">(base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> c.txt                </span><br><span class="line">HelloWorld!%                                                                                           (base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> t1.txt t2.txt &gt;&gt; c.txt</span><br><span class="line">(base) hanqichen@HanqideMBP <span class="built_in">test</span> % <span class="built_in">cat</span> c.txt                 </span><br><span class="line">HelloWorld!HelloWorld!%    </span><br></pre></td></tr></tbody></table></figure>
+<p><code>&gt;</code> <code>&gt;&gt;</code>: send the output from a command such as “cat” to a file, it can use either <code>&gt;</code> or <code>&gt;&gt;</code>.  <code>&gt;</code>would put the contents of <code>t1.txt</code> and <code>t2.txt</code>, one after the other, in a new file called <code>c.txt</code>. You can think of the <code>&gt;</code> as an arrow pointing to where you want the output to go. In the above example, if <code>c.txt</code> already exists, then it will be over-written (i.e. it will be deleted before it is recreated). Sometimes that is what you want, but often you will want to keep the previous contents of a file and simply append to it (add to the end of it). This can be accomplished by using <code>&gt;&gt;</code> rather than<code>&gt;</code>.</p>
+<h2 id="lp"><a href="#lp" class="headerlink" title="lp"></a><code>lp</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lpr  	send to printer</span><br><span class="line">lpq  	display <span class="built_in">print</span> queue</span><br><span class="line">lprm 	remove from <span class="built_in">print</span> queue</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="lpr"><a href="#lpr" class="headerlink" title="lpr"></a><code>lpr</code></h3><p>The <code>lpr</code> command stands for “line printer”, because when the command was developed, it was assumed that you would be using that type of printer. This, of course, is no longer the case for the majority of Linux users. Now, <code>lpr</code> can be used to send jobs to PostScript printers, plotters, and any other print devices you can think of.</p>
+<p>For example, to send a file named <code>thoughts</code> to the default printer, you would type<code>pr thoughts</code>. To send your file to a printer called <code>hp14</code> rather than the default one, you would type<code>lpr -P hp14 thoughts</code>. The <code>-P</code> stands for “printer”. The printer can have any name that your system administrator chooses, even something like <code>tower-of-babel</code>, if she feels like it. Note that <code>lpr</code> does not produce any output if the print request was successful.</p>
+<h3 id="lpq"><a href="#lpq" class="headerlink" title="lpq"></a><code>lpq</code></h3><p>If you type <code>lpq</code> without any arguments, you will be shown the status of all print jobs in the default print queue. To display all of the print jobs in a different queue, use the <code>-P</code> option, just as you would for the <code>lpr</code> command. </p>
+<p>For example, to check on your print job in the <code>hp14</code> queue, you would type<code>lpq -P hp14</code>.</p>
+<h3 id="lprm"><a href="#lprm" class="headerlink" title="lprm"></a><code>lprm</code></h3><p>The command to remove print jobs is called <code>lprm</code>, which stands for “line printer remove”. </p>
+<p>For example, to remove print job <code>148</code> from print queue <code>hp14</code>, you would type<code> lprm -P hp14 148</code>. (<code>148</code> is the task number that replace the filename)</p>
+<h2 id="df"><a href="#df" class="headerlink" title="df"></a><code>df</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">df</span></span><br><span class="line">Filesystem     512-blocks      Used Available Capacity iused      ifree %iused  Mounted on</span><br><span class="line">/dev/disk3s1s1  965595304  22830936 652633312     4%  348618 3263166560    0%   /</span><br><span class="line">devfs                 394       394         0   100%     682          0  100%   /dev</span><br><span class="line">/dev/disk3s6    965595304   4194344 652633312     1%       2 3263166560    0%   /System/Volumes/VM</span><br><span class="line">/dev/disk3s2    965595304  18169552 652633312     3%    1080 3263166560    0%   /System/Volumes/Preboot</span><br><span class="line">/dev/disk3s4    965595304   1234272 652633312     1%     275 3263166560    0%   /System/Volumes/Update</span><br><span class="line">/dev/disk1s2      1024000     12328    985168     2%       1    4925840    0%   /System/Volumes/xarts</span><br><span class="line">/dev/disk1s1      1024000     12544    985168     2%      32    4925840    0%   /System/Volumes/iSCPreboot</span><br><span class="line">/dev/disk1s3      1024000      4240    985168     1%      52    4925840    0%   /System/Volumes/Hardware</span><br><span class="line">/dev/disk3s5    965595304 263242968 652633312    29% 1836016 3263166560    0%   /System/Volumes/Data</span><br><span class="line">map auto_home           0         0         0   100%       0          0  100%   /System/Volumes/Data/home</span><br><span class="line">/dev/disk2s1     10485672   3196440   7250400    31%      58   36252000    0%   /System/Volumes/Update/SFR/mnt1</span><br><span class="line">/dev/disk3s1    965595304  22830936 652633312     4%  348576 3263166560    0%   /System/Volumes/Update/mnt1</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>512-blocks</code>: the total disk size,  <code>Used</code>: the disk space used, and <code>Available</code>: the available disk space.</p>
+<p><code>Use%</code> column shows the percentage of user space that is currently used.</p>
+<p><code>Mounted on</code> column shows where the disks reside in your filesystem tree. </p>
+<p>For special directory, you can use <code>df directoryname</code> such as <code>df ~</code> (home directory), <code>df .</code> (current directory).</p>
+<h2 id="ps-aux"><a href="#ps-aux" class="headerlink" title="ps aux"></a><code>ps aux</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP project % ps aux</span><br><span class="line">USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND</span><br><span class="line">hanqichen        63878  18.7  0.2 408284128  26288   ??  S    Fri07PM   1:42.40 /System/Library/Framewo</span><br><span class="line">hanqichen          651  11.7  0.2 408306400  38432   ??  S    25Dec22   7:04.67 /usr/libexec/sharingd</span><br><span class="line">_windowserver      380   7.5  0.8 413304176 126480   ??  Ss   25Dec22 703:25.07 /System/Library/Private</span><br><span class="line">hanqichen        64670   5.3  1.2 1592793184 195312   ??  S    Fri09PM  10:20.23 /Applications/Google Ch</span><br><span class="line">hanqichen        64026   4.6  1.0 442920704 170896   ??  S    Fri07PM 100:06.16 /Applications/Google Ch</span><br><span class="line">hanqichen          570   3.9  0.7 410189344 118544   ??  S    25Dec22   2:03.92 /System/Applications/Ut</span><br><span class="line">hanqichen        64044   2.2  0.8 1592694080 128464   ??  S    Fri07PM  40:01.79 /Applications/Google Ch</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>ps aux</code> command used to examine running programs (or “processes”, in Linux lingo), which stands for “process status”. </p>
+<p><code>USER</code>: the process owner.</p>
+<p><code>PID</code>: the process ID.</p>
+<p><code>START</code>: the date or time when this process started.</p>
+<p><code>TIME</code>: the amount of CPU time used by this process.</p>
+<p><code>COMMAND</code>: the command that started the process.</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title="|"></a><code>|</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> joke-1 joke-2 | lpr -P zephyr</span><br></pre></td></tr></tbody></table></figure>
+
+<p>The output of <code>cat joke-1 joke-2</code> is sent directly to the printer, rather than to a file.</p>
+<p><code>\</code> sends the output of a command as the input to another command. In other words, it “pipes” data from one command to another. </p>
+<h2 id="grap"><a href="#grap" class="headerlink" title="grap"></a><code>grap</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zoo&gt; <span class="built_in">cat</span> joke-1 joke2 | grep rabbit</span><br><span class="line">How <span class="keyword">do</span> you catch a unique rabbit?</span><br><span class="line">How <span class="keyword">do</span> you catch a tame rabbit?</span><br></pre></td></tr></tbody></table></figure>
+<p>Above command list only those lines containing the word rabbit in Jester’s joke files.</p>
+<p><code>grep</code> : to find patterns in data.</p>
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a><code>kill</code></h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zoo:-&gt; ps aux | grep rogue</span><br><span class="line">keeper	796	16:53	0:05	rogue</span><br><span class="line">keeper	825	17:04	0:00	grep rogue</span><br><span class="line">zoo:-&gt; <span class="built_in">kill</span> 796</span><br></pre></td></tr></tbody></table></figure>
+<p><code>kill</code>: to kill a process. <code>kill PID</code></p>
+<p><code>kill -9</code>: to kill a provess immediately. <code>kill -9 PID</code></p>
+<h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a><code>clear</code></h2><p><code>clear</code> is a  command that is used to clear the terminal screen. </p>
+<h1 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h1><h2 id="pathnames"><a href="#pathnames" class="headerlink" title="pathnames"></a>pathnames</h2><p>Built the pathname by starting at the top of the tree with the “root” (‘/‘) and adding upper dictory to it. Then we added a “slash” (‘/‘) every time we moved down the tree another level.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">mv</span> /Users/hanqichen/project/test /Users/hanqichen/project/new_test</span><br><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">cd</span> project</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			WashU-CourseWork-330S-503S	new_test</span><br><span class="line">Simple-Quiz-JavaScript		blog_backups			pbkey.txt</span><br><span class="line">Simple-Weather-App-Javascript	general token.txt</span><br><span class="line">Tempor Test			individual_instance.pem</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Typing in a full pathname can be tedious, though, especially if you are a long way down the tree. That’s why it is often easier to specify a “relative pathname”. It is called “relative” because it specifies a filename relative to your current location, rather than from the root directory. If you don’t put a ‘/‘ at the beginning of a pathname, then Linux knows that you are using a relative pathname.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">mv</span> project/new_test project/test</span><br><span class="line">(base) hanqichen@HanqideMBP ~ % <span class="built_in">cd</span> project</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			WashU-CourseWork-330S-503S	pbkey.txt</span><br><span class="line">Simple-Quiz-JavaScript		blog_backups			<span class="built_in">test</span></span><br><span class="line">Simple-Weather-App-Javascript	general token.txt</span><br><span class="line">Tempor Test			individual_instance.pem</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Recall that “..” refers to the directory above your current directory.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">mv</span> ../test ../test_new</span><br><span class="line">(base) hanqichen@HanqideMBP blog_backups % <span class="built_in">cd</span> ..</span><br><span class="line">(base) hanqichen@HanqideMBP project % <span class="built_in">ls</span></span><br><span class="line">JavaBlockChain			WashU-CourseWork-330S-503S	pbkey.txt</span><br><span class="line">Simple-Quiz-JavaScript		blog_backups			test_new</span><br><span class="line">Simple-Weather-App-Javascript	general token.txt</span><br><span class="line">Tempor Test			individual_instance.pem</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Wildcard-通配符"><a href="#Wildcard-通配符" class="headerlink" title="Wildcard (通配符)"></a>Wildcard (通配符)</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tron&gt; <span class="built_in">ls</span> *</span><br><span class="line">ing sing spat sport tennis</span><br><span class="line">tron&gt; <span class="built_in">ls</span> *ing</span><br><span class="line">ing sing</span><br><span class="line">tron&gt; <span class="built_in">ls</span> sp??t</span><br><span class="line">sport</span><br></pre></td></tr></tbody></table></figure>
+
+<p>A wildcard allows you to specify more than one file at the same time. The ‘<em>‘ matches any number of characters. For example, if you want to execute a command on all files in the current directory, you would specify ‘</em>‘ as the filename. If you want to be more selective and match only files which end in “ing”, you would use “<em>ing”. Note that the ‘</em>‘ can even match zero characters, so “*ing” would match “ing” as well as “sing”.</p>
+<p>The other wildcard, ‘?’, is not used very often, but it can be useful. It matches exactly one character. For example, if you want to match “sport”, but not “spat”, you would use “sp??t”. The first ‘?’ matches the ‘a’ in “spat”, but the second ‘?’ can’t match anything, so “spat” fails.</p>
+<h2 id="Hard-Drives-Tree"><a href="#Hard-Drives-Tree" class="headerlink" title="Hard Drives Tree"></a>Hard Drives Tree</h2><p><img src="/../images/md_source/hd_tree.png" alt="hd_tree"><br>The way that hard drives are handled in Linux can be a difficult concept to grasp for Windows users. In Windows, the hard drives are labelled <code>C:</code>, <code>D:</code>, etc., and each of them has its own directory tree. As you can see in the diagram at top right, there is absolutely no connection between these trees.</p>
+<p>On a Linux system, however, there is only one directory tree. Each hard drive is <code>mounted</code> on a particular directory in that tree. For example, the first hard drive is mounted on <code>/</code>, the root of the tree. Everything contained on that drive has been colored yellow in the diagram at bottom right. The second drive is mounted on <code>/home</code>. That means that any files or directories under <code>/home</code> in the tree will be stored on the second drive rather than on the first one. They are colored blue. Similarly, the third drive has been mounted on <code>/usr</code>. Its contents have been colored green.</p>
+<p>Due to its single-tree approach, the Linux filesystem structure is much more flexible and usable than the Windows structure. </p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a></div><div class="post_share"><div class="social-share" data-image="/images/md_source/linux-cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Note"><span class="toc-number">1.</span> <span class="toc-text">Linux Note</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Commands"><span class="toc-number">2.</span> <span class="toc-text">Commands</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-number">2.1.</span> <span class="toc-text">ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls-l"><span class="toc-number">2.2.</span> <span class="toc-text">ls -l</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more"><span class="toc-number">2.3.</span> <span class="toc-text">more</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir"><span class="toc-number">2.4.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv"><span class="toc-number">2.5.</span> <span class="toc-text">mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd"><span class="toc-number">2.6.</span> <span class="toc-text">cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd"><span class="toc-number">2.7.</span> <span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-number">2.8.</span> <span class="toc-text">cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp-r"><span class="toc-number">2.9.</span> <span class="toc-text">cp -r</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm"><span class="toc-number">2.10.</span> <span class="toc-text">rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir"><span class="toc-number">2.11.</span> <span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm-r"><span class="toc-number">2.12.</span> <span class="toc-text">rm -r</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chmod"><span class="toc-number">2.13.</span> <span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groups"><span class="toc-number">2.14.</span> <span class="toc-text">groups</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.15.</span> <span class="toc-text">~</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#man"><span class="toc-number">2.16.</span> <span class="toc-text">man</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finger"><span class="toc-number">2.17.</span> <span class="toc-text">finger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-number">2.18.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-number">2.19.</span> <span class="toc-text">cat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gt-gt-gt"><span class="toc-number">2.20.</span> <span class="toc-text">&gt; &gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lp"><span class="toc-number">2.21.</span> <span class="toc-text">lp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lpr"><span class="toc-number">2.21.1.</span> <span class="toc-text">lpr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lpq"><span class="toc-number">2.21.2.</span> <span class="toc-text">lpq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lprm"><span class="toc-number">2.21.3.</span> <span class="toc-text">lprm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#df"><span class="toc-number">2.22.</span> <span class="toc-text">df</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps-aux"><span class="toc-number">2.23.</span> <span class="toc-text">ps aux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">2.24.</span> <span class="toc-text">|</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grap"><span class="toc-number">2.25.</span> <span class="toc-text">grap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kill"><span class="toc-number">2.26.</span> <span class="toc-text">kill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clear"><span class="toc-number">2.27.</span> <span class="toc-text">clear</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Terms"><span class="toc-number">3.</span> <span class="toc-text">Terms</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pathnames"><span class="toc-number">3.1.</span> <span class="toc-text">pathnames</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wildcard-%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">3.2.</span> <span class="toc-text">Wildcard (通配符)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Drives-Tree"><span class="toc-number">3.3.</span> <span class="toc-text">Hard Drives Tree</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2022 - 2023 By Distortion</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&amp;logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><link rel="stylesheet" href="/css/lete.css"><link rel="stylesheet" href="/css/styles.css"><link rel="stylesheet" href="/css/custom.css"><div class="aplayer no-destroy" data-id="8738614705" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listfolded="false" data-order="list" data-preload="none" data-autoplay="false" muted=""></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
