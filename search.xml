@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>2023</title>
+      <title>Data Structure Note</title>
       <link href="/2023/08/07/Data%20Structure%20Note/"/>
       <url>/2023/08/07/Data%20Structure%20Note/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Data-Structure-Note"><a href="#Data-Structure-Note" class="headerlink" title="Data Structure Note"></a>Data Structure Note</h1><h2 id="Big-O"><a href="#Big-O" class="headerlink" title="Big O"></a>Big O</h2><table><thead><tr><th>Big O</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Constant</td><td>statement, one line of code</td></tr><tr><td>log(n)</td><td>Logarithmic</td><td>Divide and conquer (binary search)</td></tr><tr><td>n</td><td>Linear</td><td>Loop</td></tr><tr><td>n*log(n)</td><td>Linearithmic</td><td>Effective sorting algorithms</td></tr><tr><td>n^2</td><td>Quadratic</td><td>Double loop</td></tr><tr><td>n^3</td><td>Cubic</td><td>Triple loop</td></tr><tr><td>2^n</td><td>Exponential</td><td>Complex full search</td></tr></tbody></table><h2 id="Sorting-Algorithms"><a href="#Sorting-Algorithms" class="headerlink" title="Sorting Algorithms"></a>Sorting Algorithms</h2><table><thead><tr><th>Sorting Algorithms</th><th>Space complexity</th><th>Time complexity</th><th>Time complexity</th></tr></thead><tbody><tr><td></td><td>Worst case</td><td>Best case</td><td>Worst case</td></tr><tr><td>Insertion Sort</td><td>O(1)</td><td>O(n)</td><td>O(n^2)</td></tr><tr><td>Selection Sort</td><td>O(1)</td><td>O(n^2)</td><td>O(n^2)</td></tr><tr><td>Bubble Sort</td><td>O(1)</td><td>O(n)</td><td>O(n^2)</td></tr><tr><td>Mergesort</td><td>O(n)</td><td>O(n log n)</td><td>O(n log n)</td></tr><tr><td>Quicksort</td><td>O(log n)</td><td>O(n log n)</td><td>O(n^2)</td></tr><tr><td>Heapsort</td><td>O(1)</td><td>O(n log n)</td><td>O(n log n)</td></tr></tbody></table><h2 id="Data-Structure-Operations"><a href="#Data-Structure-Operations" class="headerlink" title="Data Structure Operations"></a>Data Structure Operations</h2><table><thead><tr><th>Worst Case</th><th>Access</th><th>Search</th><th>Insertion</th><th>Deletion</th><th>Space Complexity</th></tr></thead><tbody><tr><td>Array</td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td></tr><tr><td>Stack</td><td>O(n)</td><td>O(n)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Queue</td><td>O(n)</td><td>O(n)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Singly-Linked List</td><td>O(n)</td><td>O(n)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Doubly-Linked List</td><td>O(n)</td><td>O(n)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Hash Table</td><td>N&#x2F;A</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td></tr></tbody></table>]]></content>
       
       
+      <categories>
+          
+          <category> 自学笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机基础 </tag>
+            
+        </tags>
       
     </entry>
     
